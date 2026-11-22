@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Child Safety | HPAN</title>
+<meta name="description" content="How HPAN keeps young athletes safe: screened and trained coaches, a clear Code of Conduct, and how to raise a concern.">
+<link rel="canonical" href="https://hpanathletes.com.au/child-safety/">
+<meta property="og:site_name" content="HPAN">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Child Safety | HPAN">
+<meta property="og:description" content="How HPAN keeps young athletes safe: screened and trained coaches, a clear Code of Conduct, and how to raise a concern.">
+<meta property="og:url" content="https://hpanathletes.com.au/child-safety/">
+<meta property="og:image" content="https://hpanathletes.com.au/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#080D14">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: dark-first athlete coaching site, hash-routed pages in one file. Floating pill nav, split hero with rotating tall photos (text left, images right), coach cards, four plan tiles, big footer. Electric blue comes from the sleeve logo. Edit tokens to rebrand. */
+:root{
+  --bg:#080D14; --surface:#101923; --surface-2:#16212E; --fg:#EDF1F6; --muted:#97A5B6; --dim:#3F4E60; --line:#1E2B3A;
+  --accent:#1F6FEB; --accent-fg:#FFFFFF; --accent-text:#6AAAFF; --nav:rgba(16,25,35,.84); --glow:rgba(31,111,235,.32);
+  --ink:#050A10; --ink-fg:#EDF1F6;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Manrope","Helvetica Neue",Arial,sans-serif;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#F2F5F9; --surface:#FFFFFF; --surface-2:#E8EEF5; --fg:#0A1420; --muted:#526173; --dim:#B3BFCC; --line:#D9E1EA;
+  --accent:#1F6FEB; --accent-text:#1558C0; --nav:rgba(255,255,255,.9); --glow:rgba(31,111,235,.18); color-scheme:light;}}
+:root[data-theme="light"]{
+  --bg:#F2F5F9; --surface:#FFFFFF; --surface-2:#E8EEF5; --fg:#0A1420; --muted:#526173; --dim:#B3BFCC; --line:#D9E1EA;
+  --accent:#1F6FEB; --accent-text:#1558C0; --nav:rgba(255,255,255,.9); --glow:rgba(31,111,235,.18); color-scheme:light;}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-0.005em;line-height:.98;margin:0;text-wrap:balance;text-transform:uppercase}
+p{margin:0}
+a{color:inherit}
+img{display:block}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font:700 13px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);display:block;margin-bottom:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:var(--accent-fg);font:700 16px/1 var(--body);padding:17px 28px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;transition:transform .15s ease,filter .15s ease}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.1)}
+.btn.ghost{background:transparent;color:var(--fg);border:1.5px solid var(--line)}
+.btn.ghost:hover{border-color:var(--accent-text)}
+.btn.light{background:#fff;color:#0A1420}
+.btn:focus-visible,a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent-text);outline-offset:3px}
+
+.page{display:none}
+.page.on{display:block}
+
+/* nav */
+.nav{position:fixed;z-index:30;left:0;right:0;top:calc(12px + env(safe-area-inset-top,0px));display:flex;justify-content:center;padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));pointer-events:none}
+.nav-pill{pointer-events:auto;position:relative;width:100%;max-width:1180px;display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--nav);color:var(--fg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px;padding:9px 9px 9px 24px;box-shadow:0 10px 34px rgba(0,0,0,.28)}
+.logo{font:900 28px/1 var(--display);letter-spacing:.01em;text-decoration:none;color:var(--fg);white-space:nowrap;text-transform:uppercase}
+.logo b{color:var(--accent-text);font-weight:900}
+.links{display:flex;gap:24px;font-weight:600;font-size:15px}
+.links a,.nav .btn{white-space:nowrap}
+@media (max-width:1280px){.links{gap:16px;font-size:14px}}
+@media (max-width:1120px){.links{display:none}.menu{display:inline-block}}
+.links a{text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+.links a:hover{color:var(--accent-text)}
+.links a.cur{color:var(--accent-text);border-bottom-color:var(--accent-text)}
+.nav .btn{padding:13px 22px;font-size:15px}
+.menu{display:none;background:var(--fg);color:var(--bg);border:0;border-radius:999px;padding:12px 18px;font:700 14px var(--body);cursor:pointer}
+.drop{display:none;position:absolute;top:calc(100% + 8px);left:0;right:0;background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:14px;box-shadow:0 18px 44px rgba(0,0,0,.4)}
+.drop.open{display:grid;gap:2px}
+.drop a{text-decoration:none;padding:14px 16px;border-radius:16px;font-weight:700}
+.drop a:hover,.drop a.cur{background:var(--surface-2);color:var(--accent-text)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;color:#fff;background:#050A10;min-height:720px;display:flex;align-items:flex-end}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(5,10,16,.93) 0%,rgba(5,10,16,.62) 48%,rgba(5,10,16,.1) 100%),linear-gradient(0deg,rgba(5,10,16,.7),transparent 40%)}
+.slides{position:absolute;inset:0}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;overflow:hidden}
+.slide.on{opacity:1}
+.slide img,.slide video{position:absolute;display:block}
+.slide .bgi{inset:0;width:100%;height:100%;object-fit:cover}
+.slide.tall .bgi{filter:blur(34px) brightness(.55);transform:scale(1.2)}
+.slide.tall .fgi{top:0;bottom:0;right:6%;height:100%;width:36%;object-fit:cover}
+.hero-in{position:relative;z-index:2;width:100%;padding-top:150px;padding-bottom:64px}
+.hero .eyebrow{color:#6AAAFF}
+.hero h1{font-size:clamp(42px,8.4vw,124px);font-weight:900;line-height:.9;max-width:11ch}
+.hero h1 em{font-style:normal;color:#6AAAFF}
+.hero p.sub{margin-top:26px;max-width:44ch;font-size:19px;color:rgba(255,255,255,.82)}
+.hero .acts{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .btn.ghost{color:#fff;border-color:rgba(255,255,255,.4)}
+.chips{margin-top:36px;display:flex;gap:10px;flex-wrap:wrap}
+.chip{border:1px solid rgba(255,255,255,.2);background:rgba(5,10,16,.55);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:600;color:rgba(255,255,255,.75)}
+.chip b{color:#fff;font-weight:700}
+.hero-meta{margin-top:40px;display:flex;align-items:flex-end;gap:22px}
+.rot-cap b{font:800 26px/1 var(--display);text-transform:uppercase;letter-spacing:.01em;display:block}
+.rot-cap small{font-size:13px;opacity:.8}
+.dots{display:flex;gap:6px;flex:none;padding-bottom:6px}
+.dots i{width:18px;height:5px;border-radius:9px;background:rgba(255,255,255,.35);transition:background .3s,width .3s}
+.dots i.on{background:#fff;width:32px}
+.reel{position:relative;aspect-ratio:16/8;max-width:100%;margin-top:20px;border-radius:32px;overflow:hidden;background:var(--surface-2);color:#fff}
+.reel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease}
+.reel img.on{opacity:1}
+.reel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,10,16,.8));pointer-events:none}
+.reel .rot-cap{position:absolute;left:24px;right:24px;bottom:22px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:14px}
+
+/* page header */
+.phead{padding:150px 0 70px;position:relative;overflow:hidden;background:radial-gradient(700px 380px at 90% 0%,var(--glow),transparent 65%),var(--bg)}
+.phead h1{font-size:clamp(46px,7vw,100px);font-weight:900;max-width:14ch;line-height:.92}
+.phead p{margin-top:22px;max-width:54ch;color:var(--muted);font-size:19px}
+
+/* statement */
+.statement{padding:110px 0 100px}
+.statement .big{font:800 clamp(34px,5.6vw,72px)/1 var(--display);letter-spacing:0;text-transform:uppercase;max-width:20ch}
+.statement .big + .big{margin-top:36px}
+.w{color:var(--dim);transition:color .25s ease}
+.w.on{color:var(--fg)}
+
+/* sections */
+.section{padding:90px 0}
+.section.tight{padding:56px 0}
+.section.alt{background:var(--surface)}
+.section h2.c{text-align:center;font-size:clamp(38px,5.6vw,76px);margin-bottom:14px}
+.section h2.l{font-size:clamp(36px,5vw,66px);margin-bottom:16px}
+.lead{color:var(--muted);max-width:56ch;font-size:18px;margin-bottom:44px}
+.lead.c{margin-left:auto;margin-right:auto;text-align:center}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.plans5{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:700px){.plans5{grid-template-columns:minmax(0,1fr)}}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:30px;min-width:0}
+.section.alt .tile{background:var(--surface)}
+.tile .n{font:700 13px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-text);margin-bottom:26px;display:block}
+.tile h3{font-size:34px;margin-bottom:12px}
+.tile p{color:var(--muted);font-size:16px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.split ul{margin:20px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.split li{display:flex;gap:12px;color:var(--muted)}
+.split li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-top:10px}
+.ph{border-radius:28px;overflow:hidden;position:relative;background:var(--surface-2);aspect-ratio:4/5;max-width:100%}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph.land{aspect-ratio:3/2}
+.ph.empty{display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);padding:24px;border:1.5px dashed var(--line);background:transparent;font-weight:600;font-size:15px}
+
+/* achievements */
+.ach{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.ach .tile{display:flex;flex-direction:column;gap:6px}
+.ach .who{font:700 13px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.ach .big{font:900 clamp(40px,5vw,64px)/.95 var(--display);text-transform:uppercase}
+.ach .big em{font-style:normal;color:var(--accent-text)}
+.ach small{color:var(--muted);font-size:14px;margin-top:8px}
+
+/* coaches */
+.coach .ph{aspect-ratio:4/5;border-radius:26px}
+.coach h3{font-size:36px;margin:16px 0 8px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.tag{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--surface-2);color:var(--accent-text);padding:6px 12px;border-radius:999px}
+.coach p{color:var(--muted);font-size:15px}
+.coach .cred{color:var(--accent-text);font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:13px;margin-bottom:6px}
+.hero .hl,.dk .hl{color:#6AAAFF}
+.hl{font-weight:800;text-transform:uppercase;letter-spacing:.02em;color:var(--accent-text)}
+.chip b{text-transform:uppercase;letter-spacing:.04em}
+.coach.soon .ph{display:flex;align-items:center;justify-content:center;background:var(--surface);border:1px solid var(--line)}
+.coach.soon .mono{font:900 120px/1 var(--display);color:var(--dim)}
+.coach.soon .badge{position:absolute;top:16px;left:16px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--bg);border:1px solid var(--line);color:var(--muted);padding:6px 12px;border-radius:999px}
+
+/* plans */
+.plan{display:flex;flex-direction:column;gap:14px}
+.plan h3{font-size:38px;margin-bottom:0}
+.plan .amt{font:900 46px/1 var(--display);text-transform:uppercase}
+.plan .amt small{font:600 15px var(--body);color:var(--muted);text-transform:none}
+.plan ul{margin:4px 0 12px;padding:0;list-style:none;display:grid;gap:10px;color:var(--muted);font-size:15px;flex:1}
+.plan li{display:flex;gap:10px}
+.plan li::before{content:"✓";color:var(--accent-text);font-weight:800;flex:none}
+.plan .btn{width:100%}
+.plan.feat{border:2px solid var(--accent)}
+.plan.blue{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.plan.blue ul,.plan.blue .amt small{color:inherit;opacity:.92}
+.plan.blue li::before{color:var(--accent-fg)}
+.plan.blue .badge2{background:var(--accent-fg);color:var(--accent)}
+.badge2{align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--accent);color:var(--accent-fg);padding:5px 12px;border-radius:999px}
+.note{font-size:13px;color:var(--muted);max-width:74ch;margin-top:26px}
+.pend{color:var(--accent-text)}
+.ph.swap img{opacity:0;transition:opacity .9s ease}
+.ph.swap img.on{opacity:1}
+
+.pt{display:grid;grid-template-columns:72px minmax(0,1fr) minmax(0,.7fr);gap:28px;align-items:center;padding:28px 0;border-top:1px solid var(--line)}
+.pt:last-child{border-bottom:1px solid var(--line)}
+.pt .no{font:900 56px/1 var(--display);color:var(--accent-text)}
+.pt h3{font-size:36px;margin-bottom:8px}
+.pt p{color:var(--muted);max-width:48ch}
+.pt .ph{aspect-ratio:4/3;border-radius:20px}
+@media (max-width:960px){.pt{grid-template-columns:48px minmax(0,1fr);gap:16px}.pt .ph{grid-column:1/-1}.pt .no{font-size:40px}}
+.clips{display:grid;grid-template-columns:1.9fr 1fr 1fr;gap:20px;align-items:center;margin-top:30px}
+.clips.two{grid-template-columns:1fr 1fr;max-width:720px}
+.clip{aspect-ratio:3/4;border-radius:24px}
+.clip.wide{aspect-ratio:1012/626}
+.clip video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* steps */
+.steps .tile h3{font-size:30px}
+
+/* video / inside */
+.vid .ph{aspect-ratio:9/12}
+.vid .ph.empty::after{content:"▶";position:absolute;bottom:14px;right:14px;width:42px;height:42px;border-radius:50%;background:var(--fg);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:14px;padding-left:3px}
+.vid h3{font-size:24px;margin:14px 0 4px}
+.vid p{color:var(--muted);font-size:15px}
+.dl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:44px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:32px;padding:clamp(24px,4vw,48px)}
+.doc{aspect-ratio:3/4;max-width:320px;margin:0 auto;width:100%;border-radius:14px;background:linear-gradient(160deg,var(--accent),#0A2F6E);color:#fff;padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 24px 60px rgba(0,0,0,.4);transform:rotate(-3deg)}
+.doc b{font:900 44px/.95 var(--display);text-transform:uppercase}
+.gcover{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);box-shadow:0 14px 34px rgba(0,0,0,.28)}
+.gfour{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:760px){.gfour{grid-template-columns:minmax(0,1fr)}}
+.gcard{display:flex;flex-direction:column;gap:14px}
+.gcard h3{font-size:30px;margin:6px 0 0}
+.gcard p{color:var(--muted);font-size:15px;margin:0;flex:1}
+.gcard .btn{width:100%}
+.doc span{font-size:13px;opacity:.85}
+
+/* faq */
+details{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px 24px}
+details + details{margin-top:12px}
+summary{cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";color:var(--accent-text);font-size:24px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);margin-top:12px;font-size:16px}
+
+/* cta + contact + form */
+.cta{padding:30px 0 100px}
+.cta-box{background:var(--accent);color:var(--accent-fg);border-radius:40px;padding:clamp(30px,6vw,72px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:center}
+.cta-box h2{font-size:clamp(42px,6vw,84px);margin:0;font-weight:900}
+.contact{background:rgba(0,0,0,.2);border-radius:24px;padding:26px;display:grid;gap:14px}
+.contact .row{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:15px}
+.contact .row b{font-weight:700;word-break:break-word}
+.contact small{opacity:.85}
+.copy{background:#fff;color:#0A1420;border:0;border-radius:999px;padding:9px 15px;font:700 13px var(--body);cursor:pointer;flex:none}
+.form{display:grid;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:clamp(22px,4vw,40px)}
+.form .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+label{display:grid;gap:8px;font-size:14px;font-weight:700;min-width:0}
+input,select,textarea{font:500 16px var(--body);color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;width:100%;min-width:0}
+textarea{min-height:120px;resize:vertical}
+.out{background:var(--bg);border:1.5px dashed var(--accent);border-radius:18px;padding:20px;white-space:pre-wrap;font-size:15px;color:var(--fg)}
+.out[hidden]{display:none}
+
+/* footer */
+footer{background:var(--ink);color:var(--ink-fg);padding:80px 0 40px}
+footer .top{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:44px}
+footer .top h3{text-transform:none;margin:0 0 22px;font:500 clamp(24px,3.4vw,34px)/1.25 var(--body);max-width:20ch;color:var(--ink-fg)}
+footer .soc{display:flex;gap:22px}
+footer .soc a{display:inline-flex;width:30px;height:30px;color:var(--ink-fg)}
+footer .soc svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+footer .mail small{display:block;color:#8A98AA;font-size:14px}
+footer .mail a{font-size:clamp(17px,2.2vw,24px);font-weight:600}
+footer .big{pointer-events:none;font:900 clamp(90px,26vw,380px)/.8 var(--display);letter-spacing:.01em;color:var(--accent);text-transform:uppercase;margin-bottom:50px}
+footer .cols{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr));gap:30px;padding-bottom:40px;border-bottom:1px solid #1E2B3A}
+footer h4{margin:0 0 14px;font:700 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:#8A98AA}
+footer nav{display:grid;gap:8px}
+footer a{text-decoration:none;color:var(--ink-fg)}
+footer a:hover{color:#6AAAFF}
+footer p{color:#8A98AA;font-size:15px;max-width:34ch}
+footer .fine{padding-top:26px;color:#8A98AA;font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+.section.alt,.phead,.dk{--bg:#080D14;--surface:#101923;--surface-2:#16212E;--fg:#EDF1F6;--muted:#97A5B6;--dim:#3F4E60;--line:#1E2B3A;--accent-text:#6AAAFF;--glow:rgba(31,111,235,.32);color:var(--fg)}
+.section.alt,.dk{background:var(--bg)}
+@media (max-width:960px){
+  .links,.nav .btn{display:none}
+  .menu{display:inline-block}
+  .hero-in,.split,.cta-box,.dl{grid-template-columns:minmax(0,1fr);gap:36px}
+  .hero{min-height:640px}
+  .hero::before{background:linear-gradient(180deg,rgba(5,10,16,.6),rgba(5,10,16,.92))}
+  .slide.tall .fgi{right:0;width:100%}
+  .reel{aspect-ratio:4/3}
+  .clips{grid-template-columns:minmax(0,1fr)}
+  .grid3,.ach{grid-template-columns:minmax(0,1fr)}
+  .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  footer .cols{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  footer .cols > div:first-child{grid-column:1/-1}
+}
+@media (max-width:560px){
+  .grid4,.grid2,.form .two{grid-template-columns:minmax(0,1fr)}
+  .tile{padding:24px}
+}
+@media (prefers-reduced-motion:reduce){.slide,.reel img,.ph.swap img{transition:none}.w{transition:none}}
+
+img{max-width:100%}[hidden]{display:none!important}html{-webkit-text-size-adjust:100%}
+.legal h2{font-size:30px;margin:38px 0 10px;text-transform:none}
+.legal p,.legal li{color:var(--muted);line-height:1.7;font-size:16px}
+.legal ul{padding-left:22px;display:grid;gap:8px;margin:10px 0}
+.legal a{color:var(--accent-text)}
+.form label.ck{display:flex;gap:10px;align-items:flex-start;font-weight:500;line-height:1.5}.form label.ck input{width:18px;height:18px;flex:none;margin:3px 0 0}.form textarea{min-height:84px}
+#guides{scroll-margin-top:110px}
+</style>
+</head>
+<body data-page="safety">
+
+<nav class="nav" aria-label="Main">
+  <div class="nav-pill">
+    <a class="logo" href="/">HPAN<b>.</b></a>
+    <div class="links">
+      <a href="/" data-r="home">Home</a>
+      <a href="/coaches/" data-r="coaches">Coaches</a>
+      <a href="/how-it-works/" data-r="plans">How It Works</a>
+      <a href="/competition-program/" data-r="comp">Competition</a>
+      <a href="/recovery-boots/" data-r="boots">Recovery Boots</a>
+    </div>
+    <a class="btn" href="/how-it-works/" data-join="">Join now</a>
+    <button class="menu" id="menu" aria-expanded="false" aria-controls="drop">Menu</button>
+    <div class="drop" id="drop">
+      <a href="/" data-r="home">Home</a>
+      <a href="/coaches/" data-r="coaches">Coaches</a>
+      <a href="/how-it-works/" data-r="plans">How It Works</a>
+      <a href="/competition-program/" data-r="comp">Competition</a>
+      <a href="/recovery-boots/" data-r="boots">Recovery Boots</a>
+      <a href="/contact/" data-r="contact">Contact</a>
+      <a href="/how-it-works/" data-join="" style="color:var(--accent-text)">Join now</a>
+    </div>
+  </div>
+</nav>
+
+
+<main>
+<div class="page on" data-page="safety">
+  <header class="phead"><div class="wrap">
+    <span class="eyebrow">Safety</span>
+    <h1>Child safety.</h1>
+    <p>Last updated 29 October 2026.</p>
+  </div></header>
+  <section class="section tight"><div class="wrap legal" style="max-width:860px">
+<p style="font-size:19px;color:var(--fg)">HPAN is committed to the safety and wellbeing of every young athlete we coach. We have zero tolerance for child abuse, neglect and bullying.</p>
+
+<h2>How we keep athletes safe</h2>
+<ul>
+<li><b>Screened coaches.</b> Every adult HPAN coach must hold a current NSW Working With Children Check before coaching children. We verify each check on the NSW Office of the Children's Guardian website and keep a record. Coaches under 18 only ever coach alongside a cleared adult coach.</li>
+<li><b>Trained coaches.</b> Every coach completes child safe training before they start.</li>
+<li><b>A clear Code of Conduct.</b> Coaches never message children privately, never coach alone in a closed space, and keep sessions open and observable. Online sessions use approved platforms, and parents receive the session link and are welcome to join.</li>
+<li><b>Parents are involved.</b> We communicate with parents or guardians, and you can ask to watch a session at any time.</li>
+<li><b>Athletes are heard.</b> Athletes can speak up at any time, to any coach, to our Child Safe Officer, or to their parents.</li>
+<li><b>We act on concerns.</b> Every concern is taken seriously, recorded and followed up. No one is punished for raising a concern in good faith.</li>
+</ul>
+
+<h2>Raise a concern</h2>
+<p>Contact our Child Safe Officer at <a href="mailto:highperformanceathletenetwork@gmail.com">highperformanceathletenetwork@gmail.com</a> or on WhatsApp or phone <a href="https://wa.me/61490100755?text=Hi%20HPAN%2C%20I%20have%20a%20child%20safety%20question." target="_blank" rel="noopener">0490 100 755</a>.</p>
+<p>If a child is in immediate danger, call <b>000</b>. The NSW Child Protection Helpline is <b>132 111</b>.</p>
+
+<h2>Read more</h2>
+<ul>
+<li><a href="/child-safe-policy/">Child Safe Policy and Code of Conduct</a></li>
+<li><a href="/concerns/">Concerns and Complaints Procedure</a></li>
+<li><a href="/registration/">Athlete registration, consent and medical form</a></li>
+<li><a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms of Service</a></li>
+</ul>
+
+<p style="margin-top:34px;font-size:14px"><i>HPAN is an independent coaching business. HPAN is not owned by, endorsed by or affiliated with any school, club, team or sporting body. School, club and team names are used only to describe our coaches' sporting backgrounds. All trademarks and names belong to their owners.</i></p>
+</div></section>
+</div>
+</main>
+
+
+<footer><div class="wrap">
+  <div class="top">
+  <div><h3>Athletes coaching athletes</h3>
+    <div class="soc" aria-label="HPAN social media">
+      <a href="https://www.instagram.com/hpan_athletenetwork/" target="_blank" rel="noopener" aria-label="HPAN on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg></a>
+      <a id="soc-tt" href="https://www.tiktok.com/@hpan_athlete_network" target="_blank" rel="noopener" aria-label="HPAN on TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.6 2.1 4.2 5 4.4"/></svg></a>
+      <a id="soc-fb" href="https://www.facebook.com/share/14uUzAnaejM/" target="_blank" rel="noopener" aria-label="HPAN on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M13.5 21v-8h2.5M10.5 13h5M13.5 13V9.8c0-1.2.7-1.8 1.8-1.8H16"/></svg></a>
+    </div></div>
+  <div class="mail"><small>Email</small><a href="mailto:highperformanceathletenetwork@gmail.com">highperformanceathletenetwork@gmail.com</a></div>
+</div>
+  <div class="big">HPAN</div>
+  <div class="cols">
+    <div><h4>High Performance Athlete Network</h4><p>Athlete-led coaching and recovery gear, based in Sydney.</p></div>
+    <div><h4>Explore</h4><nav aria-label="Footer"><a href="/">Home</a><a href="/coaches/">Coaches</a><a href="/how-it-works/">How It Works</a><a href="/competition-program/">Competition</a></nav></div>
+    <div><h4>More</h4><nav><a href="/recovery-boots/">Recovery Boots</a><a href="/contact/?plan=Coach" data-plan="Coach">Coach with us</a><a href="/contact/">Contact</a><a href="https://www.instagram.com/hpan_athletenetwork/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@hpan_athlete_network" target="_blank" rel="noopener">TikTok</a><a href="https://www.facebook.com/share/14uUzAnaejM/" target="_blank" rel="noopener">Facebook</a></nav></div>
+  </div>
+  <div class="fine"><span>© HPAN · Sydney, NSW</span><span><a href="/terms/">Terms</a> · <a href="/privacy/">Privacy</a> · <a href="/child-safety/">Child safety</a> · <a href="/registration/">Registration form</a></span></div>
+<p style="margin:18px 0 0;font-size:12.5px;line-height:1.6;opacity:.7;max-width:900px">HPAN is an independent coaching business. HPAN is not owned by, endorsed by or affiliated with any school, club, team or sporting body. School, club and team names are used only to describe our coaches' sporting backgrounds. All trademarks and names belong to their owners.</p>
+</div></footer>
+<script>['soc-tt','soc-fb'].forEach(function(i){var a=document.getElementById(i);if(a&&/_URL$/.test(a.getAttribute('href')))a.style.display='none'})</script>
+
+<script>
+(function(){
+  function put(id,h){var e=document.getElementById(id);if(e)e.innerHTML=h;}
+  var PLANS=[
+    {k:'League',name:'HPAN League',amt:'$90',per:'/ year',desc:'A one-year membership: playbooks, monthly online seminars with our coaches and a members\u2019 community. The best place to start. Paid once, no auto-renew.',list:['Everything in the free guides','Playbook for your sport','Mindset workbook and journal','Monthly challenge pack','Monthly online seminars with our coaches','Members\u2019 community group','Guides for major events','First look at open lesson spots'],cta:'Join the League',ghost:true,tag:'Start here'},
+    {k:'Pro',name:'HPAN Pro',amt:'$90',per:'/ hour',desc:'Ten one-hour online group lessons with a coach in your sport.',list:['Everything in the League','10-lesson pack: $900','Video analysis of technique','Mindset and confidence','Nutrition and recovery habits','Goals and season planning','Competition preparation','WhatsApp line to your coach, parents included','Groups of up to 10, use within 16 weeks','Not sure? Try one lesson for $90 first'],cta:'Book Pro',feat:true,tag:'Limited spots'},
+    {k:'Group',name:'Private Group',amt:'Enquire',per:'',desc:'Train with your mates: 2 to 10 athletes with one coach. Extremely limited spots.',list:['Everything in Pro','Sold as a 10-lesson pack','Your own WhatsApp group with your coach','Minimum 2 athletes','Price confirmed on enquiry'],cta:'Enquire',ghost:true,tag:'Limited spots'},
+    {k:'Premium',name:'HPAN Premium',amt:'Enquire',per:'',desc:'1 on 1 with your coach, fully customised to you. Extremely limited spots.',list:['Everything in Pro','Fully customised to the athlete','Sold as a 10-lesson pack','WhatsApp group with your coach and parents','Price and times agreed with you'],cta:'Enquire',blue:true,tag:'Limited spots'}
+  ];
+  function planHTML(){
+    return PLANS.map(function(p){
+      return '<div class="tile plan'+(p.feat?' feat':'')+(p.blue?' blue':'')+'">'+(p.tag?'<span class="badge2">'+p.tag+'</span>':'')+
+        '<h3>'+(p.name||p.k)+'</h3><div class="amt">'+p.amt+' <small>'+p.per+'</small></div><p style="'+(p.blue?'color:inherit;opacity:.9':'color:var(--muted)')+';font-size:15px">'+p.desc+'</p><ul>'+
+        p.list.map(function(l){return '<li>'+l+'</li>';}).join('')+'</ul><a class="btn'+(p.ghost?' ghost':'')+(p.blue?' light':'')+'" data-join="'+p.k+'" '+(p.url?'href="'+p.url+'" target="_blank" rel="noopener"':(p.href?'href="'+p.href+'"':'href="/contact/?plan='+p.k+'" data-plan="'+p.k+'"'))+'>'+p.cta+'</a></div>';
+    }).join('');
+  }
+  put('plans-home',planHTML());
+  put('plans-main',planHTML());
+
+  var FAQ=[
+    ['Who are the coaches?','Evan (swimming, breaststroke specialist, and gym), Ethan (swimming: freestyle, butterfly and backstroke), Dylan (sprinting), Alex (basketball), Dan (swimming), Ryan (water polo and gym), William (volleyball), Matthew and Max (soccer) and Miles (tennis). More coaches are joining.'],
+    ['Can I choose my coach?','Yes. Tell us your preferred coach. Spots are allocated in the order they are confirmed, so no coach is overbooked. If your coach is full, we place you with another coach in your sport and tell you before you pay.'],
+    ['Are the guides really free?','Yes. All four guides are free. The Welcome Guide, Athlete Guide, Parent Guide and printable Planner Pack unlock when you sign up with your name and email. No card needed.'],
+    ['Do coaches replace my club coach?','No. HPAN is an addition to your current program. Your club, school or squad coach stays your coach. We add 1 on 1 time and mentoring.'],
+    ['What is in Pro?','Pro is a pack of 10 one-hour online group lessons with an HPAN coach in your sport, in small groups of up to 10 athletes. Each lesson is different, covering coaching, mentoring, mindset, technical analysis and habits. You also get a WhatsApp group with your coach, the athletes and parents. 1 on 1 coaching is available through HPAN Premium.'],
+    ['Is there a WhatsApp group with the coach?','Yes. Pro, Private Group and Premium clients get a WhatsApp group with their coach that includes the athletes and parents, for updates and questions between lessons. Your coach replies as soon as they can, and the WhatsApp group is for training only. Coaches never message under-18 athletes privately.'],
+    ['Can my friends and I train together with a coach?','Yes. A private group is 2 to 10 athletes with a coach in your sport, sold as a 10-lesson pack per athlete. Spots are extremely limited. Tap Join now, choose Private Group and tell us your group size and preferred times. We reply with availability and pricing, and confirm the coach and times with you before you pay.'],
+    ['What is HPAN Premium?','1 on 1 coaching, sold as a pack of 10 lessons and fully customised to the athlete. Spots are extremely limited. Send an enquiry, we reply with availability and pricing, agree your times, then send a payment link.'],
+    ['Do you coach para athletes and athletes with disability?','Yes. HPAN is built for athletes with and without disability. Dan Rigby, a Para-swimmer on the Paralympic pathway, looks after every athlete with disability at HPAN and also coaches swimming.'],
+    ['Is HPAN only for kids?','No. HPAN is for all athletes at any level, junior and senior. Primary school, high school and adult athletes can all join, from beginners to national level.'],
+    ['Can younger athletes join?','Yes. HPAN is for athletes of all ages and levels, junior and senior. We speak with a parent or guardian before anyone under 18 starts, and we group athletes by age so lessons suit them.'],
+    ['How do I pay?','The HPAN League ($90 for 12 months) is paid once by card. Pro ($900 for 10 lessons) is paid by card on Stripe when you book. Private Group and 1 on 1 are paid by card after we confirm your price and times with you. We confirm your group and start date within 1 business day, and refund you in full if we cannot place you. Prefer a bank transfer? Message us on WhatsApp 0490 100 755. Recovery boots are arranged with us directly.'],
+    ['Do you run events and meet-ups?','Yes. We plan to host an in-person meet-up every month or two, where athletes can network with peers and meet the coaches. We announce what is coming up every month, and parents are welcome.'],
+    ['Can I cancel?','HPAN League: it is a one-off payment for 12 months and does not renew automatically, so there is nothing to cancel. Pro: if you miss a lesson it is not refunded. If we cancel a lesson, we give you a make-up lesson or a refund for it. Your rights under the Australian Consumer Law always apply.']
+  ];
+  var FAQ_PARENTS=[['How much does HPAN cost?','The guides are free. The HPAN League is $90 for a whole year. Pro is $900 for 10 one-hour online group lessons ($90 each). Private Group and 1 on 1 coaching have extremely limited spots: send an enquiry and we reply with availability and pricing. All prices are in AUD.'],
+    ['Is there a contract or joining fee?','No joining fee. The HPAN League is a one-off $90 for 12 months and does not renew by itself. Pro is a one-off pack of 10 lessons with nothing further to pay.'],
+    ['What happens in a Pro lesson?','Each lesson is one hour, online, in a small group of up to 10 athletes. The coach teaches a topic with a slideshow, then the group does a debrief where each athlete shares and asks questions. Each of the 10 lessons covers something different: coaching, mentoring, mindset, technical analysis and habits.'],
+    ['How many athletes are in a group?','Up to 10. We group athletes by sport and age group so lessons suit them.'],
+    ['What is the difference between Pro and Premium?','Pro is group lessons ($900 for 10). Premium is 1 on 1 time with a coach, as a pack of 10 lessons, with extremely limited spots. Send an enquiry and we reply with pricing and agree times with you.'],
+    ['Can we try one lesson first?','Yes. Pay $90 for one lesson. If it is not for you, that is all you pay. If you want to continue, you pay the remaining $810 for the other 9 lessons, so the total is the same $900.'],
+    ['How long do we have to use the 10 lessons?','16 weeks from your start date. Unused lessons then expire, unless we cancelled lessons.'],
+    ['What if my child misses a lesson?','A missed lesson is used up and is not refunded or made up, unless we agree otherwise. Let us know as early as you can. If we or the coach cancel a lesson, we give you a make-up lesson or a refund for it.'],
+    ['What if the group or coach we want is full?','We place your child with another coach in their sport and tell you first. If we cannot place you at all, we refund you in full.'],
+    ['Can friends or siblings join the same group?','Each athlete books their own place. If you would like to train with a friend or sibling, tell us when you book and we will try to group you together, age permitting.'],
+    ['Are the lessons online or in person?','Pro lessons are online. The HPAN League is digital resources, monthly online seminars with our coaches and a members\u2019 group. We also plan in-person meet-ups every month or two, where athletes network with peers and meet the coaches. Parents are welcome.'],
+    ['What do we need for an online lesson?','A laptop, tablet or phone with a camera and microphone, a steady internet connection, and a quiet space. We send the joining details once your group and start date are confirmed.'],
+    ['What time are the lessons?','Each coach has set weekly times, shown when you book, in Sydney time. Pick the one that suits your family.'],
+    ['How do you keep my child safe?','We speak with a parent or guardian before any athlete under 18 starts. Coaches communicate only through HPAN channels and never message under-18 athletes privately. Nobody may record a lesson without our written permission and, for under-18s, a parent or guardian’s consent. If you are worried about anything, contact us straight away.'],
+    ['Should I be there during the lessons?','For younger children we recommend a parent or guardian is nearby. If you have questions about this for your child’s age, ask us when you book.'],
+    ['Who will coach my child?','HPAN coaches are athletes who have competed at state, national and international level in the sport they teach, including a Para-swimmer on the Paralympic pathway. You can read about each one on the Coaches page.'],
+    ['How are groups put together?','We group athletes by sport and age group, so junior and senior athletes learn at a level that suits them. Pick your preferred coach and time when you book, and we confirm your group within 1 business day.'],
+    ['Will this overload my child, on top of their squad training?','HPAN is an addition to your child’s program, not a replacement, and our lessons are one hour. Our resources stress rest, listening to your body and building up slowly. If your child has pain that is sharp, getting worse or waking them at night, they should see a doctor or physio.'],
+    ['Is the advice medical advice?','No. Everything HPAN provides is general information for school-age athletes. If your child is injured or unwell, check with a doctor or physio first.'],
+    ['What is in the HPAN League?','A one-year membership for $90: a playbook for your child’s sport, a Mindset Workbook, a training and competition journal, a monthly challenge pack and a 31-day diary, monthly online seminars with our coaches (nutrition, recovery and sleep, mindset and competition prep), a members’ group, guides for major events and a first look at open lesson spots. It is paid once and does not renew automatically.'],
+    ['Does the HPAN League renew automatically?','No. It is a single payment that covers 12 months. We will let you know before it ends so you can choose to join again.'],
+    ['How do payments work, and are they secure?','Pro and the HPAN League are paid by card through Stripe. We never see or store your card number. Prefer a bank transfer for Pro? Message us on WhatsApp 0490 100 755. Premium is paid after we agree your times.'],
+    ['Can we get a refund?','If we cannot place your child, we refund you in full. If we cancel a lesson, you get a make-up lesson or a refund for it. Your rights under the Australian Consumer Law always apply. Talk to us early if something is not working.'],
+    ['My child has a disability. How do you adapt?','Tell us about your child’s classification, injuries or access needs when you book. Dan Rigby, an S9 Para-swimmer, looks after every athlete with disability at HPAN and helps us adapt lessons.'],
+    ['Will my child get a training or diet plan?','We give general guidance, not an individual medical, diet or rehab plan. For injury, illness, growth, weight or eating questions, please see a doctor, physio or dietitian.'],
+    ['How is my family’s information used?','We collect only what we need to run lessons and reply to you, and we never sell it. We only send marketing emails if you tick the box, and you can unsubscribe any time. See our Privacy Policy for details.'],
+    ['How do we get started?','Download the free Parent Guide, then book Pro or send us an enquiry. We reply within one business day, speak with a parent or guardian, and help you choose the right plan.'],
+    ['What if we are not sure which plan suits us?','Start with the free guides, or send us an enquiry telling us your sport, age group and goals. We will point you to the right plan with no pressure.'],
+    ['How do we contact HPAN?','Email highperformanceathletenetwork@gmail.com, WhatsApp or call 0490 100 755, or message @hpan_athletenetwork on Instagram. We reply within one business day, usually sooner.']];
+  var FAQ_ATHLETES=[['Do I need to be a top athlete to join?','No. HPAN is for athletes from just starting out through to national level. Our coaches have been through the process themselves and can help at any stage.'],
+    ['Do I need my parent’s permission?','If you are under 18, a parent or guardian needs to book or contact us for you. Ask them to book through the Join now button.'],
+    ['Which sports can I get coaching in?','Swimming, basketball, volleyball, soccer, tennis, sprinting, gym and water polo. We are adding more coaches over time. Not listed? Send us an enquiry.'],
+    ['Are the coaches real athletes?','Yes. Every HPAN coach competes, or has competed, at state, national or international level in the sport they teach.'],
+    ['What happens in a lesson?','One hour online in a small group. The coach teaches a topic with a slideshow, then everyone does a debrief where you can share and ask questions.'],
+    ['What will I learn?','Technique, race or game preparation, training load, recovery, sleep, food and the mindset habits behind every good season. Each lesson covers a different topic.'],
+    ['How often are the lessons?','Your coach has a set weekly time. You have 16 weeks to use your 10 lessons.'],
+    ['What do I need to join online?','A laptop, tablet or phone with a camera and microphone, a steady internet connection and a quiet space.'],
+        ['Can I train with my friends?','Maybe. Each athlete books their own place, but tell us when you book and we will try to put friends in the same group, age permitting.'],
+    ['I get nervous speaking in a group. Is that okay?','Absolutely. You can ask your questions in the debrief when you are ready. The HPAN League also includes a Mindset Workbook for nerves, focus and bouncing back.'],
+    ['Can you help with nerves and confidence?','Yes. The HPAN League includes a Mindset Workbook for nerves, focus and bouncing back.'],
+    ['How do I get the free guides?','Enter your name and email to unlock the Athlete Guide, Parent Guide and printable Planner Pack, plus updates and events if you opt in.'],
+    ['What is the HPAN League?','A one-year membership for $90: a playbook for your sport, a Mindset Workbook, a journal, a monthly challenge pack and a 31-day diary, monthly online seminars with our coaches (nutrition, recovery and sleep, mindset and competition prep), a members’ group, guides for major events and a first look at open lesson spots. Paid once, no auto-renew.'],
+    ['Can I get 1 on 1 coaching?','Yes. Premium is 1 on 1 with your coach, as a pack of 10 lessons, with extremely limited spots. Send an enquiry and we reply with availability and pricing, then agree times with you.'],
+    ['Will the coaches replace my club or school coach?','No. Your club, school or squad coach stays your coach. HPAN gives you extra guidance, resources and mentoring on top.'],
+    ['Can I ask a coach a question?','Yes. Pro lessons end with a group debrief where you can ask the coach questions. You can also send us a question from the Contact page.'],
+    ['What if I get injured?','Rest and see a doctor or physio. HPAN gives general information only, not medical advice. Tell your coach so they can adjust what you do in lessons.'],
+    ['I have a disability. Can I join?','Yes. HPAN is built for athletes with and without disability. Dan Rigby, an S9 Para-swimmer, looks after every athlete with disability at HPAN.'],
+    ['Can I message a coach directly?','Coaches communicate only through HPAN channels, never privately with under-18 athletes. Use the Contact page, WhatsApp or email and we will pass it on.'],
+    ['I am over 18. Can I join?','Yes. Send us an enquiry with your sport and goals and we will tell you the best option.'],
+    ['Do you run events?','Yes. We plan in-person meet-ups every month or two so athletes can network and meet the coaches. Parents are welcome.']];
+  function faqItems(a){return a.map(function(f){return '<details><summary>'+f[0]+'</summary><p>'+f[1]+'</p></details>';}).join('');}
+  function faqH(t){return '<h3 style="font:800 26px/1.1 var(--display);text-transform:uppercase;margin:34px 0 14px">'+t+'</h3>';}
+  function faqHTML(){return faqItems(FAQ);}
+  function faqAll(){return faqItems(FAQ)+faqH('For parents')+faqItems(FAQ_PARENTS)+faqH('For athletes')+faqItems(FAQ_ATHLETES);}
+  put('faq-plans',faqAll());
+  put('faq-contact',faqAll());
+  put('faq-home',faqItems(FAQ.filter(function(f){return ['Who are the coaches?','Can I choose my coach?','Do coaches replace my club coach?','What is in Pro?','How do I pay?'].indexOf(f[0])>-1;})));
+
+  var drop=document.getElementById('drop'),menu=document.getElementById('menu');
+
+  var blocks=[].slice.call(document.querySelectorAll('.reveal'));
+  blocks.forEach(function(el){
+    var words=el.textContent.trim().split(/\s+/);
+    el.textContent='';
+    words.forEach(function(w,i){
+      var s=document.createElement('span');s.className='w';s.textContent=w;
+      el.appendChild(s);
+      if(i<words.length-1)el.appendChild(document.createTextNode(' '));
+    });
+  });
+  function update(){
+    var vh=window.innerHeight;
+    blocks.forEach(function(el){
+      if(!el.offsetParent)return;
+      var r=el.getBoundingClientRect();
+      var p=Math.max(0,Math.min(1,(vh*0.85-r.top)/(vh*0.4)));
+      var ws=el.querySelectorAll('.w'),n=Math.round(p*ws.length);
+      for(var i=0;i<ws.length;i++)ws[i].classList.toggle('on',i<n);
+    });
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+
+  function route(first){
+    var h=document.body.getAttribute('data-page');
+    [].forEach.call(document.querySelectorAll('[data-r]'),function(a){a.classList.toggle('cur',a.getAttribute('data-r')===h);});
+    drop.classList.remove('open');menu.setAttribute('aria-expanded','false');
+    update();
+  }
+  menu.addEventListener('click',function(){
+    var o=drop.classList.toggle('open');menu.setAttribute('aria-expanded',o?'true':'false');
+  });
+  route(true);
+  // old #links from the previous one-page version
+  (function(){
+    var M={why:'/how-it-works/',para:'/coaches/',inside:'/how-it-works/',coaches:'/coaches/',plans:'/how-it-works/',boots:'/recovery-boots/',contact:'/contact/'};
+    var t=M[(location.hash||'').replace('#','')];
+    if(t&&location.pathname==='/')location.replace(t);
+  })();
+  // ?plan= preselects the form
+  (function(){
+    var m=/[?&]plan=([A-Za-z]+)/.exec(location.search),sel=document.getElementById('f-plan');
+    if(m&&sel)sel.value=m[1];
+  })();
+
+  // plan buttons preselect the form
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('[data-plan]');
+    if(!a)return;
+    var sel=document.getElementById('f-plan');
+    if(sel)sel.value=a.getAttribute('data-plan');
+  });
+
+  // rotators
+  function $(id){return document.getElementById(id);}
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function rotator(items,nameEl,subEl,dotsEl,ms){
+    var cur=0;
+    dotsEl.innerHTML=items.map(function(_,i){return '<i'+(i===0?' class="on"':'')+'></i>';}).join('');
+    var dots=[].slice.call(dotsEl.children);
+    function show(i){
+      cur=i;
+      items.forEach(function(m,j){
+        m.classList.toggle('on',j===i);
+        var v=m.querySelector&&m.querySelector('video');
+        if(v){if(j===i){try{v.currentTime=0;var pr=v.play();if(pr&&pr.catch)pr.catch(function(){});}catch(e){}}else{try{v.pause();}catch(e){}}}
+      });
+      dots.forEach(function(d,j){d.classList.toggle('on',j===i);});
+      nameEl.textContent=items[i].getAttribute('data-name');
+      subEl.textContent=items[i].getAttribute('data-sub');
+    }
+    show(0);
+    if(!reduce)setInterval(function(){if(items[0].parentNode.offsetParent)show((cur+1)%items.length);},ms);
+  }
+  if($('rcn'))rotator([].slice.call(document.querySelectorAll('#slides .slide')),$('rcn'),$('rcs'),$('dots'),5000);
+  if($('kn'))rotator([].slice.call(document.querySelectorAll('#reel img')),$('kn'),$('ks'),$('kdots'),4000);
+
+  [].slice.call(document.querySelectorAll('.ph.swap')).forEach(function(box,k){
+    var imgs=[].slice.call(box.querySelectorAll('img')),c=0;
+    if(imgs.length<2||reduce)return;
+    setTimeout(function(){setInterval(function(){
+      if(!box.offsetParent)return;
+      imgs[c].classList.remove('on');c=(c+1)%imgs.length;imgs[c].classList.add('on');
+    },4800);},k*650);
+  });
+
+  // message builder
+  function v(id){return document.getElementById(id).value;}
+  var out=document.getElementById('out'),co=document.getElementById('copyout');
+  var FORM='https://formspree.io/f/mljgqlwd',st=document.getElementById('status'),sb=document.getElementById('sendbtn');
+  var JF=document.getElementById('joinform');
+  if(JF)JF.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(v('f-hp'))return;
+    var plan=v('f-plan'),lines=['Hi HPAN team,','','I’d like to join: '+plan+'.','Name: '+(v('f-name')||'[your name]'),'Sport: '+v('f-sport'),'Level: '+v('f-level')];
+    lines.push('Mobile: '+v('f-mob').trim());lines.push('Preferred coach: '+v('f-coach'));
+    if(v('f-msg').trim())lines.push('Notes: '+v('f-msg').trim());
+    lines.push('','Thanks!');
+    var text=lines.join('\n');
+    sb.disabled=true;sb.textContent='Sending...';st.hidden=true;out.hidden=true;co.hidden=true;
+    function fail(){
+      sb.disabled=false;sb.textContent='Send enquiry';
+      st.textContent='Sorry, that did not send. Please copy the message below and email it to highperformanceathletenetwork@gmail.com or WhatsApp 0490 100 755.';st.hidden=false;
+      out.textContent=text;out.hidden=false;co.hidden=false;
+    }
+    try{
+      fetch(FORM,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({name:v('f-name'),email:v('f-email'),_replyto:v('f-email'),plan:plan,sport:v('f-sport'),level:v('f-level'),mobile:v('f-mob'),preferred_coach:v('f-coach'),notes:v('f-msg'),message:text,_subject:'HPAN enquiry: '+plan})
+      }).then(function(r){
+        if(r.ok){sb.disabled=false;sb.textContent='Send enquiry';st.textContent='Thanks! Your enquiry has been sent. We will reply within one business day.';st.hidden=false;document.getElementById('joinform').reset();}
+        else fail();
+      },fail);
+    }catch(x){fail();}
+  });
+  function sel(el){var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);}
+  function doCopy(btn,el){
+    function done(){var o=btn.textContent;btn.textContent='Copied';setTimeout(function(){btn.textContent=o;},1200);}
+    try{navigator.clipboard.writeText(el.textContent).then(done,function(){sel(el);});}catch(x){sel(el);}
+  }
+  if(co)co.addEventListener('click',function(){doCopy(co,out);});
+  [].forEach.call(document.querySelectorAll('.copy'),function(b){
+    b.addEventListener('click',function(){doCopy(b,document.getElementById(b.getAttribute('data-t')));});
+  });
+})();
+</script>
+
+<script src="/join.js" defer></script>
+<script src="/assistant.js" defer></script>
+</body>
+</html>

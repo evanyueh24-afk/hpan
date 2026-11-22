@@ -1,0 +1,29 @@
+[build]
+  publish = "."
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/why-hpan/*"
+  to = "/how-it-works/"
+  status = 301
+[[redirects]]
+  from = "/why-hpan"
+  to = "/how-it-works/"
+  status = 301
+[[redirects]]
+  from = "/inside-hpan/*"
+  to = "/how-it-works/"
+  status = 301
+[[redirects]]
+  from = "/inside-hpan"
+  to = "/how-it-works/"
+  status = 301
+[[redirects]]
+  from = "/para-athletes/*"
+  to = "/coaches/"
+  status = 301
+[[redirects]]
+  from = "/para-athletes"
+  to = "/coaches/"
+  status = 301
